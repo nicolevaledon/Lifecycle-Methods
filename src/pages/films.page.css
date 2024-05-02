@@ -5,7 +5,15 @@
   text-align: center;
 }
 
-ul > li {
+nav > ul {
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+
+.movie-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
@@ -17,4 +25,10 @@ ul > li {
 ul img {
   width: 100%;
   height: auto;
+}
+.form-group > label {
+  margin-right: 0.5rem;
+}
+.activeLink {
+  color: black;
 }

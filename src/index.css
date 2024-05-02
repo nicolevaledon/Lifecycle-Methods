@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(59, 36, 143, 0.6);
+  background-color: #f8e4e4;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -53,5 +53,3 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-

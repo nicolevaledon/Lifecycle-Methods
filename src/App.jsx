@@ -1,41 +1,36 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
+import { HomePage, FilmsPage } from "./pages/index.js";
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    fetch(`https://studioghibliapi-d6fc8.web.app/films`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-
-        return setMovies(data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
   return (
     <>
-      <h1>Studio Ghibli</h1>
-      <p>Movies</p>
-      <ul>
-        {movies.map((film) => {
-          return (
-            <li key={film.id}>
-              <div className="movie-left">
-                <h2>{film.title}</h2>
-                <img src={film.image} alt={`${film.title} banner`} />
-              </div>
-              <div className="movie-right">
-                <p>{film.description}</p>
-                <p>
-                  {film.running_time}min - Rotten Tomatoes: {film.rt_score}%
-                </p>
-              </div>
+      <BrowserRouter>
+        <nav>
+          <ul>
+            <li>
+              <NavLink
+                to="/ "
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+              >
+                Home
+              </NavLink>
             </li>
-          );
-        })}
-      </ul>
+            <li>
+              <NavLink
+                to="/films"
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+              >
+                Films
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/films" element={<FilmsPage />} />
+        </Routes>
+      </BrowserRouter>
+      ;
     </>
   );
 }
